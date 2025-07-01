@@ -16,7 +16,13 @@ import {
   Coffee,
   Cookie,
   Flame,
-  Salad
+  Salad,
+  Truck,
+  Store,
+  User,
+  Phone,
+  MapPinIcon,
+  MessageCircle
 } from 'lucide-react';
 
 interface MenuItem {
@@ -33,10 +39,26 @@ interface CartItem extends MenuItem {
   spiceLevel: string;
 }
 
+interface CustomerDetails {
+  name: string;
+  phone: string;
+  address: string;
+  orderType: 'delivery' | 'takeaway';
+  notes: string;
+}
+
 const Menu: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('starters-veg');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedItems, setSelectedItems] = useState<{[key: string]: {quantity: number, spiceLevel: string}}>({});
+  const [showOrderPopup, setShowOrderPopup] = useState(false);
+  const [customerDetails, setCustomerDetails] = useState<CustomerDetails>({
+    name: '',
+    phone: '',
+    address: '',
+    orderType: 'takeaway',
+    notes: ''
+  });
 
   const spiceLevels = ['Very Mild', 'Mild', 'Medium', 'Hot', 'Extra Hot'];
 
@@ -345,6 +367,53 @@ const Menu: React.FC = () => {
     }, 0);
   };
 
+  const handleCustomerDetailsChange = (field: keyof CustomerDetails, value: string) => {
+    setCustomerDetails(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const generateWhatsAppMessage = () => {
+    const orderItems = Object.entries(selectedItems).map(([itemId, selection]) => {
+      const item = menuItems.find(i => i.id === itemId);
+      if (!item) return '';
+      return `• ${item.name} x${selection.quantity} (${selection.spiceLevel}) - R${item.price * selection.quantity}`;
+    }).filter(Boolean).join('\n');
+
+    const message = `🍽️ *Order from Bawas Food Infinite*
+
+👤 *Customer Details:*
+Name: ${customerDetails.name}
+Phone: ${customerDetails.phone}
+Order Type: ${customerDetails.orderType === 'delivery' ? '🚚 Delivery' : '🏪 Takeaway'}
+${customerDetails.orderType === 'delivery' ? `Address: ${customerDetails.address}` : ''}
+${customerDetails.notes ? `Notes: ${customerDetails.notes}` : ''}
+
+📋 *Order Details:*
+${orderItems}
+
+💰 *Total Amount: R${getTotalPrice()}*
+
+Thank you for choosing Bawas Food Infinite! 🙏`;
+
+    return encodeURIComponent(message);
+  };
+
+  const handleOrderNow = () => {
+    const whatsappMessage = generateWhatsAppMessage();
+    const phoneNumber = '27678800167'; // Restaurant's WhatsApp number
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const isOrderValid = () => {
+    return customerDetails.name.trim() !== '' && 
+           customerDetails.phone.trim() !== '' && 
+           (customerDetails.orderType === 'takeaway' || customerDetails.address.trim() !== '') &&
+           getTotalItems() > 0;
+  };
+
   return (
     <section id="menu" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -475,9 +544,18 @@ const Menu: React.FC = () => {
                 <ShoppingCart size={20} />
                 <span className="font-semibold">Cart Summary</span>
               </div>
-              <span className="bg-white text-green-600 px-2 py-1 rounded-full text-sm font-bold">
-                {getTotalItems()}
-              </span>
+              <div className="flex items-center space-x-2">
+                <span className="bg-white text-green-600 px-2 py-1 rounded-full text-sm font-bold">
+                  {getTotalItems()}
+                </span>
+                <button
+                  onClick={() => setSelectedItems({})}
+                  className="text-white hover:text-red-200 transition-colors"
+                  title="Clear cart"
+                >
+                  <X size={18} />
+                </button>
+              </div>
             </div>
             <div className="space-y-2 mb-4 max-h-40 overflow-y-auto">
               {Object.entries(selectedItems).map(([itemId, selection]) => {
@@ -502,11 +580,198 @@ const Menu: React.FC = () => {
               <span className="font-bold text-xl">R{getTotalPrice()}</span>
             </div>
             <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setShowOrderPopup(true)}
               className="w-full mt-3 bg-white text-green-600 font-semibold py-2 rounded-lg hover:bg-green-50 transition-colors"
             >
               Proceed to Order
             </button>
+          </div>
+        )}
+
+        {/* Order Popup */}
+        {showOrderPopup && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 flex justify-between items-center">
+                <h3 className="text-2xl font-bold">Complete Your Order</h3>
+                <button
+                  onClick={() => setShowOrderPopup(false)}
+                  className="text-white hover:text-gray-200 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="flex flex-col lg:flex-row max-h-[calc(90vh-120px)]">
+                {/* Left Side - Order Details */}
+                <div className="lg:w-1/2 p-6 border-r border-gray-200 overflow-y-auto">
+                  <h4 className="text-xl font-bold text-gray-900 mb-4">Order Summary</h4>
+                  <div className="space-y-4">
+                    {Object.entries(selectedItems).map(([itemId, selection]) => {
+                      const item = menuItems.find(i => i.id === itemId);
+                      if (!item) return null;
+                      
+                      return (
+                        <div key={itemId} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-1">
+                              <h5 className="font-semibold text-gray-900">{item.name}</h5>
+                              <div className={`p-1 rounded-full ${item.isVegetarian ? 'bg-green-100' : 'bg-red-100'}`}>
+                                {item.isVegetarian ? (
+                                  <Leaf className="text-green-600" size={12} />
+                                ) : (
+                                  <Drumstick className="text-red-600" size={12} />
+                                )}
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-600 mb-2">{item.description}</p>
+                            <div className="text-sm text-gray-700">
+                              <span>Quantity: {selection.quantity}</span>
+                              <span className="ml-4">Spice: {selection.spiceLevel}</span>
+                            </div>
+                          </div>
+                          <div className="text-right ml-4">
+                            <div className="font-bold text-green-600">R{item.price * selection.quantity}</div>
+                            <div className="text-sm text-gray-500">R{item.price} each</div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  
+                  <div className="mt-6 pt-4 border-t border-gray-200">
+                    <div className="flex justify-between items-center text-xl font-bold">
+                      <span>Total Amount:</span>
+                      <span className="text-green-600">R{getTotalPrice()}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side - Customer Details */}
+                <div className="lg:w-1/2 p-6 overflow-y-auto">
+                  <h4 className="text-xl font-bold text-gray-900 mb-4">Customer Details</h4>
+                  
+                  {/* Order Type Selection */}
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">Order Type</label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button
+                        onClick={() => handleCustomerDetailsChange('orderType', 'takeaway')}
+                        className={`flex items-center justify-center space-x-2 p-4 rounded-lg border-2 transition-all ${
+                          customerDetails.orderType === 'takeaway'
+                            ? 'border-green-500 bg-green-50 text-green-700'
+                            : 'border-gray-300 hover:border-green-300'
+                        }`}
+                      >
+                        <Store size={20} />
+                        <span className="font-medium">Takeaway</span>
+                      </button>
+                      <button
+                        onClick={() => handleCustomerDetailsChange('orderType', 'delivery')}
+                        className={`flex items-center justify-center space-x-2 p-4 rounded-lg border-2 transition-all ${
+                          customerDetails.orderType === 'delivery'
+                            ? 'border-green-500 bg-green-50 text-green-700'
+                            : 'border-gray-300 hover:border-green-300'
+                        }`}
+                      >
+                        <Truck size={20} />
+                        <span className="font-medium">Delivery</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Customer Information Form */}
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="customerName" className="block text-sm font-medium text-gray-700 mb-2">
+                        <User size={16} className="inline mr-1" />
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="customerName"
+                        value={customerDetails.name}
+                        onChange={(e) => handleCustomerDetailsChange('name', e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="Enter your full name"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="customerPhone" className="block text-sm font-medium text-gray-700 mb-2">
+                        <Phone size={16} className="inline mr-1" />
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        id="customerPhone"
+                        value={customerDetails.phone}
+                        onChange={(e) => handleCustomerDetailsChange('phone', e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                        placeholder="Enter your phone number"
+                        required
+                      />
+                    </div>
+
+                    {customerDetails.orderType === 'delivery' && (
+                      <div>
+                        <label htmlFor="customerAddress" className="block text-sm font-medium text-gray-700 mb-2">
+                          <MapPinIcon size={16} className="inline mr-1" />
+                          Delivery Address *
+                        </label>
+                        <textarea
+                          id="customerAddress"
+                          value={customerDetails.address}
+                          onChange={(e) => handleCustomerDetailsChange('address', e.target.value)}
+                          rows={3}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                          placeholder="Enter your complete delivery address"
+                          required
+                        />
+                      </div>
+                    )}
+
+                    <div>
+                      <label htmlFor="customerNotes" className="block text-sm font-medium text-gray-700 mb-2">
+                        Special Instructions (Optional)
+                      </label>
+                      <textarea
+                        id="customerNotes"
+                        value={customerDetails.notes}
+                        onChange={(e) => handleCustomerDetailsChange('notes', e.target.value)}
+                        rows={3}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                        placeholder="Any special requests or dietary requirements..."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Buttons */}
+              <div className="border-t border-gray-200 p-6 flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => setShowOrderPopup(false)}
+                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                >
+                  Continue Shopping
+                </button>
+                <button
+                  onClick={handleOrderNow}
+                  disabled={!isOrderValid()}
+                  className={`flex-1 px-6 py-3 rounded-lg font-medium transition-all flex items-center justify-center space-x-2 ${
+                    isOrderValid()
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white transform hover:scale-105'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
+                >
+                  <MessageCircle size={20} />
+                  <span>Order via WhatsApp</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
