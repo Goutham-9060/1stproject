@@ -751,10 +751,10 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
               </div>
 
               {/* Footer Buttons */}
-              <div className="border-t border-gray-200 p-6 flex flex-col gap-4">
+              <div className="border-t border-gray-200 p-6 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setShowOrderPopup(false)}
-                  className="w-full px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
                 >
                   Continue Shopping
                 </button>
