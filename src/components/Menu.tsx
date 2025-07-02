@@ -645,6 +645,7 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
                       <span>Total Amount:</span>
                       <span className="text-green-600">R{getTotalPrice()}</span>
                     </div>
+                    <p className="text-sm text-gray-500 mt-1 italic">(excluding delivery charges)</p>
                   </div>
                 </div>
 
