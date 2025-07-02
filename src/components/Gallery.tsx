@@ -28,6 +28,12 @@ const Gallery: React.FC = () => {
       alt: "Catering Setup - Professional buffet service with chafing dishes",
       title: "Catering Services",
       description: "Professional catering setup showcasing our ability to serve large groups with style and elegance"
+    },
+    {
+      src: "/WhatsApp Image 2025-07-02 at 10.38.05_384a0143.jpg",
+      alt: "Premium Wine Collection - Curated selection of fine wines",
+      title: "Wine Collection",
+      description: "Our carefully curated selection of premium wines, perfectly paired to complement our authentic Indian cuisine"
     }
   ];
 
@@ -73,7 +79,7 @@ const Gallery: React.FC = () => {
 
         {/* Gallery Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-          {galleryImages.map((image, index) => (
+          {galleryImages.slice(0, 4).map((image, index) => (
             <div 
               key={index}
               className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-green-100"
@@ -117,6 +123,56 @@ const Gallery: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Wine Collection - Featured Section */}
+        <div className="mb-12">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-green-100">
+            <div className="lg:grid lg:grid-cols-2 lg:gap-0">
+              <div className="relative group overflow-hidden">
+                <img 
+                  src={galleryImages[4].src}
+                  alt={galleryImages[4].alt}
+                  className="w-full h-96 lg:h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+                <button
+                  onClick={() => openLightbox(4)}
+                  className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-800 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100"
+                  aria-label="View full image"
+                >
+                  <Camera size={20} />
+                </button>
+              </div>
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">{galleryImages[4].title}</h3>
+                <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  {galleryImages[4].description}. From robust reds to crisp whites, our sommelier-selected wines 
+                  enhance the rich flavors and spices of our traditional dishes, creating the perfect dining experience.
+                </p>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-gray-700">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    <span>Premium South African wines</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    <span>Expert pairing recommendations</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                    <span>Special occasion selections</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => openLightbox(4)}
+                  className="self-start bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                >
+                  View Collection
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Call to Action */}
