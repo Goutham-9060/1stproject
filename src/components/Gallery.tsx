@@ -58,17 +58,17 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+    <section id="gallery" className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">Gallery</span>
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">Gallery</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Step inside Bawas Food Infinite and experience the warm, authentic atmosphere where 
             every corner tells a story of culinary passion and cultural heritage.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto"></div>
         </div>
 
         {/* Gallery Grid */}
@@ -76,7 +76,7 @@ const Gallery: React.FC = () => {
           {galleryImages.map((image, index) => (
             <div 
               key={index}
-              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="group relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-green-100"
             >
               <div className="relative overflow-hidden">
                 <img 
@@ -110,7 +110,7 @@ const Gallery: React.FC = () => {
                 <p className="text-gray-600 leading-relaxed">{image.description}</p>
                 <button
                   onClick={() => openLightbox(index)}
-                  className="mt-4 text-amber-600 hover:text-amber-700 font-semibold text-sm transition-colors duration-300"
+                  className="mt-4 text-green-600 hover:text-green-700 font-semibold text-sm transition-colors duration-300"
                 >
                   View Full Image →
                 </button>
@@ -120,7 +120,7 @@ const Gallery: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center bg-white rounded-2xl shadow-xl p-8 border border-amber-100">
+        <div className="text-center bg-white rounded-2xl shadow-xl p-8 border border-green-100">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Experience It Yourself</h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             These images capture just a glimpse of the warm, authentic atmosphere at Bawas Food Infinite. 
@@ -128,7 +128,7 @@ const Gallery: React.FC = () => {
           </p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
           >
             Visit Us Today
           </button>
