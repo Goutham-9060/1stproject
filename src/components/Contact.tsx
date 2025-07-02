@@ -39,9 +39,9 @@ const Contact: React.FC = () => {
       icon: Phone,
       title: "Call Us",
       details: [
-        "+27 067 880 0167",
-        "+27 067 801 5223", 
-        "+27 011 465 2848"
+        "+27 67 880 0167",
+        "+27 67 801 5223", 
+        "+27 11 465 2848"
       ],
       color: "text-green-600"
     },
@@ -57,7 +57,7 @@ const Contact: React.FC = () => {
       icon: MessageCircle,
       title: "Customer Care",
       details: [
-        "+27 081 438 1154"
+        "+27 81 438 1154"
       ],
       color: "text-orange-600"
     },
