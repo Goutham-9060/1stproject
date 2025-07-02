@@ -98,16 +98,16 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="text-green-400 flex-shrink-0" size={18} />
                 <div>
-                  <p className="text-gray-300">+27 067 880 0167</p>
-                  <p className="text-gray-300">+27 067 801 5223</p>
-                  <p className="text-gray-300">+27 011 465 2848</p>
+                  <p className="text-gray-300">+27 67 880 0167</p>
+                  <p className="text-gray-300">+27 67 801 5223</p>
+                  <p className="text-gray-300">+27 11 465 2848</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <MessageCircle className="text-green-400 flex-shrink-0" size={18} />
                 <div>
                   <p className="text-gray-300">Customer Care:</p>
-                  <p className="text-gray-300">+27 081 438 1154</p>
+                  <p className="text-gray-300">+27 81 438 1154</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
