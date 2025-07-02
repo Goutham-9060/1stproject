@@ -591,7 +591,7 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
         {/* Order Popup */}
         {showOrderPopup && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
               {/* Header */}
               <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 flex justify-between items-center">
                 <h3 className="text-2xl font-bold">Complete Your Order</h3>
@@ -751,7 +751,7 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
               </div>
 
               {/* Footer Buttons */}
-              <div className="border-t border-gray-200 p-6 flex flex-col sm:flex-row gap-4">
+              <div className="border-t border-gray-200 p-6 flex flex-col sm:flex-row gap-4 sticky bottom-0 bg-white">
                 <button
                   onClick={() => setShowOrderPopup(false)}
                   className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
