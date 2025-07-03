@@ -387,7 +387,7 @@ const Menu: React.FC = () => {
 Name: ${customerDetails.name}
 Phone: ${customerDetails.phone}
 Order Type: ${customerDetails.orderType === 'delivery' ? '🚚 Delivery' : '🏪 Takeaway'}
-${customerDetails.orderType === 'delivery' ? `Address: ${customerDetails.address}` : ''}
+${customerDetails.orderType === 'Delivery (Delivery charges extra)' ? `Address: ${customerDetails.address}` : ''}
 ${customerDetails.notes ? `Notes: ${customerDetails.notes}` : ''}
 
 📋 *Order Details:*
