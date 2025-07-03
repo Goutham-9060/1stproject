@@ -244,19 +244,19 @@ const Menu: React.FC = () => {
     { id: 'egg-parantha', name: 'Egg Parantha/Kulcha', description: 'Indian bread stuffed with egg and spices.', price: 55, category: 'breads', isVegetarian: false },
     { id: 'laccha-parantha', name: 'Laccha Parantha/Kerala Parantha', description: 'Indian pastry rolled and cooked in tandoor.', price: 28, category: 'breads', isVegetarian: true },
 
-    // Bunny Chows & Roti Rolls
+    // Bunny Chows
     { id: 'bunny-mixed-veg', name: 'Mixed Vegetable Bunny Chow', description: 'Mixed vegetable curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
     { id: 'bunny-beans', name: 'Beans Bunny Chow', description: 'Bean curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
     { id: 'bunny-paneer', name: 'Paneer Bunny Chow', description: 'Paneer curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: true },
     { id: 'bunny-chicken', name: 'Chicken Bunny Chow', description: 'Chicken curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: false },
     { id: 'bunny-lamb', name: 'Lamb Bunny Chow', description: 'Lamb curry served in a hollowed bread loaf.', price: 120, category: 'bunny-chows', isVegetarian: false },
 
-    // Bunny Chows & Roti Rolls
-    { id: 'bunny-mixed-veg', name: 'Mixed Vegetable Bunny Chow', description: 'Mixed vegetable curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
-    { id: 'bunny-beans', name: 'Beans Bunny Chow', description: 'Bean curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
-    { id: 'bunny-paneer', name: 'Paneer Bunny Chow', description: 'Paneer curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: true },
-    { id: 'bunny-chicken', name: 'Chicken Bunny Chow', description: 'Chicken curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: false },
-    { id: 'bunny-lamb', name: 'Lamb Bunny Chow', description: 'Lamb curry served in a hollowed bread loaf.', price: 120, category: 'bunny-chows', isVegetarian: false },
+    // Roti Rolls
+    { id: 'roti-roll-veg', name: 'Vegetable Roti Roll', description: 'Vegetable curry wrapped in roti bread.', price: 60, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-chicken', name: 'Chicken Roti Roll', description: 'Chicken curry wrapped in roti bread.', price: 75, category: 'roti-rolls', isVegetarian: false },
+  { id: 'roti-roll-lamb', name: 'Lamb Roti Roll', description: 'Lamb curry wrapped in roti bread.', price: 85, category: 'roti-rolls', isVegetarian: false },
+  { id: 'roti-roll-paneer', name: 'Paneer Roti Roll', description: 'Paneer curry wrapped in roti bread.', price: 70, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-egg', name: 'Egg Roti Roll', description: 'Egg curry wrapped in roti bread.', price: 65, category: 'roti-rolls', isVegetarian: false },
 
     // Indo Chinese - Starters
     { id: 'honey-chilli-potato', name: 'Honey Chilli Potato', description: 'Crispy potatoes tossed in honey chilli sauce.', price: 80, category: 'indo-chinese', isVegetarian: true },
