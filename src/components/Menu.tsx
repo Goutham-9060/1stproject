@@ -75,7 +75,7 @@ const Menu: React.FC = () => {
     { id: 'vegetarian', label: 'Vegetarian Ravishes', icon: Leaf },
     { id: 'rice-biryani', label: 'Various Rice & Biryani', icon: Wheat },
     { id: 'breads', label: 'Indian Breads', icon: Wheat },
-    { id: 'bunny-chows', label: 'Bunny Chows & Roti Rolls', icon: Sandwich },
+    { id: 'bunny-chows', label: 'Bunny Chows', icon: Sandwich },
     { id: 'roti-rolls', label: 'Roti Rolls', icon: ChefHat },
     { id: 'indo-chinese', label: 'Indo Chinese', icon: Flame },
     { id: 'sides', label: 'Side Dishes', icon: Salad },
