@@ -403,11 +403,16 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
   const handleOrderNow = () => {
   const whatsappMessage = generateWhatsAppMessage();
   const phoneNumber = '27678800167';
-  const baseUrl = navigator.userAgent.includes('Mobile') 
-    ? `https://wa.me/${phoneNumber}?text=${whatsappMessage}` 
-    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`;
-  
-  window.open(baseUrl, '_blank');
+
+  // Detect if the user is on a mobile device
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+  const whatsappUrl = isMobile
+    ? `https://wa.me/${phoneNumber}?text=${whatsappMessage}`  // Mobile link
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`;  // Desktop link
+
+  // Open WhatsApp in new tab
+  window.open(whatsappUrl, '_blank');
 };
 
   };
