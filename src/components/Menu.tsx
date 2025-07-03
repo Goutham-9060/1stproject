@@ -404,16 +404,18 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
   const whatsappMessage = generateWhatsAppMessage();
   const phoneNumber = '27678800167';
 
-  // Detect if the user is on a mobile device
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
 
-  const whatsappUrl = isMobile
-    ? `https://wa.me/${phoneNumber}?text=${whatsappMessage}`  // Mobile link
-    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`;  // Desktop link
+  const encodedMessage = encodeURIComponent(whatsappMessage);
 
-  // Open WhatsApp in new tab
+  // Always open web/mobile version with prefilled message
+  const whatsappUrl = isMobile
+    ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
   window.open(whatsappUrl, '_blank');
 };
+
 
   };
 
