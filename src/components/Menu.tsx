@@ -397,7 +397,7 @@ ${orderItems}
 
 Thank you for choosing Bawas Food Infinite! 🙏`;
 
-    return encodeURIComponent(message);
+    return(message);
   };
 
   const handleOrderNow = () => {
