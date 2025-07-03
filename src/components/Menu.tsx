@@ -426,7 +426,7 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
            getTotalItems() > 0;
   };
 
-  return (
+  return 
     <section id="menu" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
