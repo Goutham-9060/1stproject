@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             </div>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               Experience the authentic flavors of India with our carefully crafted dishes, 
-              prepared using traditional recipes and the finest ingredients. Every meal is a 
+              prepared using traditional recipes and the finest spices. Every meal is a 
               celebration of our rich culinary heritage.
             </p>
             <div className="flex space-x-4">
