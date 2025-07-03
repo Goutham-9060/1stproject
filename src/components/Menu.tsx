@@ -76,6 +76,7 @@ const Menu: React.FC = () => {
     { id: 'rice-biryani', label: 'Various Rice & Biryani', icon: Wheat },
     { id: 'breads', label: 'Indian Breads', icon: Wheat },
     { id: 'bunny-chows', label: 'Bunny Chows & Roti Rolls', icon: Sandwich },
+    { id: 'bunny-chows', label: 'Bunny Chows & Roti Rolls', icon: Sandwich },
     { id: 'indo-chinese', label: 'Indo Chinese', icon: Flame },
     { id: 'sides', label: 'Side Dishes', icon: Salad },
     { id: 'desserts', label: 'Desserts & Hot Beverages', icon: Coffee }
@@ -242,6 +243,13 @@ const Menu: React.FC = () => {
     { id: 'paneer-parantha', name: 'Paneer Parantha/Kulcha', description: 'Indian bread stuffed with Indian cottage cheese.', price: 50, category: 'breads', isVegetarian: true },
     { id: 'egg-parantha', name: 'Egg Parantha/Kulcha', description: 'Indian bread stuffed with egg and spices.', price: 55, category: 'breads', isVegetarian: false },
     { id: 'laccha-parantha', name: 'Laccha Parantha/Kerala Parantha', description: 'Indian pastry rolled and cooked in tandoor.', price: 28, category: 'breads', isVegetarian: true },
+
+    // Bunny Chows & Roti Rolls
+    { id: 'bunny-mixed-veg', name: 'Mixed Vegetable Bunny Chow', description: 'Mixed vegetable curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
+    { id: 'bunny-beans', name: 'Beans Bunny Chow', description: 'Bean curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
+    { id: 'bunny-paneer', name: 'Paneer Bunny Chow', description: 'Paneer curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: true },
+    { id: 'bunny-chicken', name: 'Chicken Bunny Chow', description: 'Chicken curry served in a hollowed bread loaf.', price: 90, category: 'bunny-chows', isVegetarian: false },
+    { id: 'bunny-lamb', name: 'Lamb Bunny Chow', description: 'Lamb curry served in a hollowed bread loaf.', price: 120, category: 'bunny-chows', isVegetarian: false },
 
     // Bunny Chows & Roti Rolls
     { id: 'bunny-mixed-veg', name: 'Mixed Vegetable Bunny Chow', description: 'Mixed vegetable curry served in a hollowed bread loaf.', price: 80, category: 'bunny-chows', isVegetarian: true },
