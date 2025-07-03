@@ -395,6 +395,15 @@ ${orderItems}
 
 💰 *Total Amount: R${getTotalPrice()}*
 
+📦 *Delivery Charges Notice:*
+Charges are based on distance and not included in the total. Please confirm with the restaurant.
+
+• 0–4 km: R40  
+• 5–8 km: R60  
+• 9–12 km: R100  
+• Above 12 km: R200
+
+
 Thank you for choosing Bawas Food Infinite! 🙏`;
 
     return(message);
