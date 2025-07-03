@@ -414,7 +414,7 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   window.open(whatsappUrl, '_blank');
-};
+
 
 
   };
