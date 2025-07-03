@@ -403,31 +403,13 @@ Thank you for choosing Bawas Food Infinite! 🙏`;
   const handleOrderNow = () => {
   const whatsappMessage = generateWhatsAppMessage();
   const phoneNumber = '27678800167';
+  const baseUrl = navigator.userAgent.includes('Mobile') 
+    ? `https://wa.me/${phoneNumber}?text=${whatsappMessage}` 
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`;
+  
+  window.open(baseUrl, '_blank');
+};
 
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    // On mobile, open WhatsApp with message
-    const mobileUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-    window.open(mobileUrl, '_blank');
-  } else {
-    // On desktop, try opening the WhatsApp app (won’t prefill message)
-    const appLink = `whatsapp://send?phone=${phoneNumber}`;
-    window.location.href = appLink;
-
-    // Copy the message to clipboard in case app opens
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(decodeURIComponent(whatsappMessage))
-        .then(() => console.log("Message copied to clipboard for WhatsApp Desktop"))
-        .catch(err => console.error("Clipboard copy failed", err));
-    }
-
-    // Open WhatsApp Web as fallback (this WILL prefill the message)
-    setTimeout(() => {
-      const webUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${whatsappMessage}`;
-      window.open(webUrl, '_blank');
-    }, 1000);
-  }
   };
 
   const isOrderValid = () => {
