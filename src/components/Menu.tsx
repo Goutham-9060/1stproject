@@ -254,8 +254,8 @@ const Menu: React.FC = () => {
     // Roti Rolls
     { id: 'roti-roll-veg', name: 'Mixed Vegetable Roti Roll', description: 'Mixed Vegetable curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: true },
   { id: 'roti-roll-chicken', name: 'Beans Roti Roll', description: 'Beans curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: true },
-  { id: 'roti-roll-lamb', name: 'Paneer Roti Roll', description: 'Panner curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: false },
-  { id: 'roti-roll-paneer', name: 'Chicken Roti Roll', description: 'Chicken curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-lamb', name: 'Paneer Roti Roll', description: 'Panner curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-paneer', name: 'Chicken Roti Roll', description: 'Chicken curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: false },
   { id: 'roti-roll-egg', name: 'Lamb Roti Roll', description: 'Lamb curry wrapped in roti bread.', price: 120, category: 'roti-rolls', isVegetarian: false },
 
     // Indo Chinese - Starters
