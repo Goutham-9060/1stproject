@@ -252,11 +252,11 @@ const Menu: React.FC = () => {
     { id: 'bunny-lamb', name: 'Lamb Bunny Chow', description: 'Lamb curry served in a hollowed bread loaf.', price: 120, category: 'bunny-chows', isVegetarian: false },
 
     // Roti Rolls
-    { id: 'roti-roll-veg', name: 'Mixed Vegetable Roti Roll', description: 'Vegetable curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: true },
-  { id: 'roti-roll-chicken', name: 'Beans Roti Roll', description: 'Chicken curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: false },
-  { id: 'roti-roll-lamb', name: 'Paneer Roti Roll', description: 'Lamb curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: false },
-  { id: 'roti-roll-paneer', name: 'Chicken Roti Roll', description: 'Paneer curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: true },
-  { id: 'roti-roll-egg', name: 'Lamb Roti Roll', description: 'Egg curry wrapped in roti bread.', price: 120, category: 'roti-rolls', isVegetarian: false },
+    { id: 'roti-roll-veg', name: 'Mixed Vegetable Roti Roll', description: 'Mixed Vegetable curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-chicken', name: 'Beans Roti Roll', description: 'Beans curry wrapped in roti bread.', price: 80, category: 'roti-rolls', isVegetarian: false },
+  { id: 'roti-roll-lamb', name: 'Paneer Roti Roll', description: 'Panner curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: false },
+  { id: 'roti-roll-paneer', name: 'Chicken Roti Roll', description: 'Chicken curry wrapped in roti bread.', price: 90, category: 'roti-rolls', isVegetarian: true },
+  { id: 'roti-roll-egg', name: 'Lamb Roti Roll', description: 'Lamb curry wrapped in roti bread.', price: 120, category: 'roti-rolls', isVegetarian: false },
 
     // Indo Chinese - Starters
     { id: 'honey-chilli-potato', name: 'Honey Chilli Potato', description: 'Crispy potatoes tossed in honey chilli sauce.', price: 80, category: 'indo-chinese', isVegetarian: true },
