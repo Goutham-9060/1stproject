@@ -54,6 +54,55 @@ const About: React.FC = () => {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">Bawas Food Infinite</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-8"></div>
+          
+          {/* Cultural Introduction */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-green-100 max-w-5xl mx-auto">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Welcome to Our Culinary Heritage</h3>
+            </div>
+            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+              <p className="text-xl font-medium text-green-700 italic">
+                "It is our honor to introduce you to our Culture and its vast variety of delectable 
+                vegetarian and non-vegetarian dishes that are prepared with authentic Masala."
+              </p>
+              
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6 border-l-4 border-green-500">
+                <p className="mb-4">
+                  <span className="font-bold text-green-600">"Masala"</span> means a mixture of spices in Hindi. 
+                  It is the <span className="font-semibold text-green-600">artful blending of these spices</span> that gives each recipe 
+                  its distinctive and unique flavor.
+                </p>
+                <p>
+                  Experience some exotic, appetizing variety of mouth-watering dishes having 
+                  <span className="font-semibold text-green-600"> rich spicy and buttery flavor</span>.
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-green-100">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                    <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                    Beverages & More
+                  </h4>
+                  <p className="text-gray-600">
+                    Enjoy our selection of <span className="font-medium">alcoholic and non-alcoholic drinks</span>, 
+                    hot beverages and desserts to complement your dining experience.
+                  </p>
+                </div>
+                
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-green-100">
+                  <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                    <span className="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
+                    Our Promise
+                  </h4>
+                  <p className="text-gray-600">
+                    We look forward to <span className="font-medium">welcoming you and your family</span> to enjoy an 
+                    exceptional and memorable dining experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Main Story Section */}
